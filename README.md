@@ -4,3 +4,4 @@ logout
 post creation
 post like 
 post delete
+upload profile image
