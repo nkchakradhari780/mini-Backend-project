@@ -19,14 +19,6 @@ app.get('/',(req,res)=>{
     res.render('index');
 })
 
-// app.get('/upload',(req,res)=>{
-//     res.render('file');
-// })
-
-// app.post('/upload',upload.single('image'),(req,res)=>{
-//     console.log(req.body)
-// })
-
 app.get('/login',(req,res)=>{
     res.render('login');
 })
@@ -35,6 +27,7 @@ app.get('/login',(req,res)=>{
 app.get('/profile/upload',(req,res)=>{
     res.render('profile_upload');
 })
+
 app.post('/upload',isLoggedIn, upload.single("image"),async (req,res)=>{
     let user = await userModel.findOne({email: req.user.email})
     user.profilepic = req.file.filename;
